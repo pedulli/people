@@ -1,0 +1,87 @@
+/**
+	Also written by Tristie
+*/
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+body {
+	background-color: #f5f6f8;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+ul {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	list-style: none;
+	background-color: #a9d7ff;
+	border-bottom: 2px solid #8dabc6;
+	padding: 1rem;
+
+	@media screen and (width < 500px) {
+		flex-direction: column;
+	}
+
+	li {
+		padding: 0.5rem;
+
+		a,
+		a:visited,
+		a:active {
+			color: black;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+main {
+	max-width: 1000px;
+	margin-inline: auto;
+	display: grid;
+	gap: 1em;
+	padding: 1em;
+
+	@media screen and (width > 600px) {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+button {
+	all: unset;
+	box-sizing: border-box;
+	width: 100%;
+	height: 250px;
+	border-radius: 2rem;
+	background-color: #3e5b1a;
+
+	color: white;
+	padding: 1rem 2rem;
+	vertical-align: baseline;
+	font-size: 3rem;
+	font-weight: bold;
+	cursor: pointer;
+
+	@media (prefers-reduced-motion: no-preference) {
+		transition: background-color 1s;
+	}
+
+	&::before {
+		content: '✿';
+		display: block;
+		font-size: 4rem;
+		color: black;
+		padding-bottom: 1rem;
+	}
+
+	&:hover,
+	&:focus-visible {
+		background-color: #6b2d7a;
+	}
+}
