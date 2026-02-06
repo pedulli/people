@@ -1,175 +1,306 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+	<head>
+		<!-- tristie:star -->
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Tristie's Starport</title>
+		<meta
+			name="description"
+			content="Welcome to my Starport, a place build for my Web & Mobile 2 class."
+		>
+		<meta
+			http-equiv="Content-Security-Policy"
+			content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src fonts.bunny.net"
+		>
 
-<head>
-	<!-- tristie:star -->
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Tristie's Starport</title>
-	<meta name="description" content="Welcome to my Starport, a place build for my Web & Mobile 2 class.">
-	<meta http-equiv="Content-Security-Policy"
-		content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src fonts.bunny.net">
+		<link rel="preconnect" href="https://fonts.bunny.net">
+		<link
+			rel="stylesheet"
+			href="knickknacks/attire/index.css"
+			media="not print and (prefers-reduced-data: no-preference)"
+		>
+	</head>
 
-	<link rel="preconnect" href="https://fonts.bunny.net">
-	<link rel="stylesheet" href="knickknacks/attire/index.css" media="not print and (prefers-reduced-data: no-preference)">
-</head>
-
-<body style="max-width: 600px; margin-inline: auto; background-color: #d6d3d1;">
-	<br style="user-select: none;">
-	<h1 aria-label="Tristie's Starport">
-		<span aria-hidden="true">Tristie's Starport</span>
-		<img src="knickknacks/depictions/starport.svg" alt="Tristie's Starport" style="display: none;" aria-hidden="true">
-	</h1>
-	<nav aria-labelledby="nav">
-		<h2 id="nav">Sections</h2>
-		<ul>
-			<li>
-				<a href="#/about" class="planet about" aria-labelledby="/about">
-					<span aria-hidden="true">About Me</span>
-					<img src="knickknacks/depictions/planet.svg" alt="about" draggable="false" style="display: none;" width="100"
-						height="100" aria-hidden="true">
-					<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display: none;"
-						aria-hidden="true">
-						<path fill="none" stroke="none" d="
-							M 10, 50
-							a 40,40 0 1,1 80,0
-							a 40,40 0 1,1 -80,0
-						" />
-						<text>
-							<textPath fill="white" font-size="20" href="#circlePath">
-								About Me
-							</textPath>
-						</text>
-					</svg>
-				</a>
-			</li>
-			<li>
-				<a href="#/exercises" class="planet exercises" aria-label="Exercises">
-					<span aria-hidden="true">Exercises</span>
-					<img src="knickknacks/depictions/exercises.svg" alt="about" draggable="false" style="display: none;" width="100"
-						height="100" aria-hidden="true">
-					<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display: none;"
-						aria-hidden="true">
-						<path fill="none" stroke="none" d="
-							M 10, 50
-							a 40,40 0 1,1 80,0
-							a 40,40 0 1,1 -80,0
-						" />
-						<text>
-							<textPath fill="white" font-size="20" href="#circlePath">
-								Exercises
-							</textPath>
-						</text>
-					</svg>
-				</a>
-			</li>
-			<li>
-				<a href="#/projects/me" class="planet me" aria-label="Individual Projects">
-					<span aria-hidden="true">Individual Projects</span>
-					<img src="knickknacks/depictions/individual.svg" alt="about" draggable="false" style="display: none;"
-						width="100" height="100" aria-hidden="true">
-					<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display: none;"
-						aria-hidden="true">
-						<path fill="none" stroke="none" d="
-							M 10, 50
-							a 40,40 0 1,1 80,0
-							a 40,40 0 1,1 -80,0
-						" />
-						<text>
-							<textPath fill="white" font-size="20" href="#circlePath">
-								Individual Projects
-							</textPath>
-						</text>
-					</svg>
-				</a>
-			</li>
-			<li>
-				<a href="#/projects/us" class="planet us" aria-label="Group Project">
-					<span aria-hidden="true">Group Project</span>
-					<img src="knickknacks/depictions/group.svg" alt="about" draggable="false" style="display: none;" width="100"
-						height="100" aria-hidden="true">
-					<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display: none;"
-						aria-hidden="true">
-						<path fill="none" stroke="none" d="
-							M 10, 50
-							a 40,40 0 1,1 80,0
-							a 40,40 0 1,1 -80,0
-						" />
-						<text>
-							<textPath fill="white" font-size="20" href="#circlePath">
-								Group Project
-							</textPath>
-						</text>
-					</svg>
-				</a>
-			</li>
-		</ul>
-		<svg style="position: fixed; opacity: 0; pointer-events: none;" viewBox='0 0 400 400'
-			xmlns='http://www.w3.org/2000/svg' aria-hidden="true">
-			<filter id='noiseFilter'>
-				<feTurbulence type='fractalNoise' result="turbulence" baseFrequency='0.2' numOctaves='1'
-					stitchTiles='stitch' />
-				<feDisplacementMap in2="turbulence" in="SourceGraphic" scale="100" xChannelSelector="R"
-					yChannelSelector="G" />
-			</filter>
-		</svg>
-	</nav>
-	<main>
-		<article aria-labelledby="/about">
-			<h2 id="/about">About</h2>
-			<p>
-				My name is Tristie Pedulli, I live on the ocean in a town near Rochester. A fun fact about me is that I
-				like to walk around and have found many cool spaces that way. I hope this website gives you that
-				experience.
-			</p>
-			<p>
-				Some may say that this website over the top and convoluted, and those people are 100% correct. At least
-				this convoluted website is accessable, responsive, semantically correct, progressively enhanced, and
-				respects users preferences.
-			</p>
-			<p>
-				All images were created by me, the font is <a href="https://www.brailleinstitute.org/freefont/"
-					target="_blank">Atkinson Hyperlegible</a>.
-			</p>
-		</article>
-		<article aria-labelledby="/exercises">
-			<h2 id="/exercises">Exercises</h2>
-			<ol>
-				<li>
-					<a href="https://people.rit.edu/~tgp5235/iste-240/" aria-current="page">ISTE-240 Course Homepage
-						(this page)</a>
-				</li>
-				<li>upcoming</li>
-				<li>upcoming</li>
-				<li>upcoming</li>
-				<li>upcoming</li>
-				<li>upcoming</li>
-				<li>upcoming</li>
-				<li>upcoming</li>
-			</ol>
-		</article>
-		<article aria-labelledby="/projects/me">
-			<h2 id="/projects/me">Individual Projects</h2>
-			<p>
-				I don't have any ISTE-240 individual projects yet so check back later, I guess.
-			</p>
-		</article>
-		<article aria-labelledby="/projects/us">
-			<h2 id="/projects/us">Group Project</h2>
-			<p>
-				This section will get updated once our group project is started.
-			</p>
-			<h3>The Dream Team</h3>
+	<body
+		style="max-width: 600px; margin-inline: auto; background-color: #d6d3d1"
+	>
+		<br style="user-select: none">
+		<h1 aria-label="Tristie's Starport">
+			<span aria-hidden="true">Tristie's Starport</span>
+			<img
+				src="knickknacks/depictions/starport.svg"
+				alt="Tristie's Starport"
+				style="display: none"
+				aria-hidden="true"
+			>
+		</h1>
+		<nav aria-labelledby="nav">
+			<h2 id="nav">Sections</h2>
 			<ul>
-				<li>Amber</li>
-				<li>Jennifer</li>
-				<li>Lily</li>
+				<li>
+					<a
+						href="#/about"
+						class="planet about"
+						aria-labelledby="/about"
+					>
+						<span aria-hidden="true">About Me</span>
+						<img
+							src="knickknacks/depictions/planet.svg"
+							alt="about"
+							draggable="false"
+							style="display: none"
+							width="100"
+							height="100"
+							aria-hidden="true"
+						>
+						<svg
+							viewBox="0 0 100 100"
+							xmlns="http://www.w3.org/2000/svg"
+							style="display: none"
+							aria-hidden="true"
+						>
+							<path
+								fill="none"
+								stroke="none"
+								d="
+							M 10, 50
+							a 40,40 0 1,1 80,0
+							a 40,40 0 1,1 -80,0
+						"
+							/>
+							<text>
+								<textPath
+									fill="white"
+									font-size="20"
+									href="#circlePath"
+								>
+									About Me
+								</textPath>
+							</text>
+						</svg>
+					</a>
+				</li>
+				<li>
+					<a
+						href="#/exercises"
+						class="planet exercises"
+						aria-label="Exercises"
+					>
+						<span aria-hidden="true">Exercises</span>
+						<img
+							src="knickknacks/depictions/exercises.svg"
+							alt="about"
+							draggable="false"
+							style="display: none"
+							width="100"
+							height="100"
+							aria-hidden="true"
+						>
+						<svg
+							viewBox="0 0 100 100"
+							xmlns="http://www.w3.org/2000/svg"
+							style="display: none"
+							aria-hidden="true"
+						>
+							<path
+								fill="none"
+								stroke="none"
+								d="
+							M 10, 50
+							a 40,40 0 1,1 80,0
+							a 40,40 0 1,1 -80,0
+						"
+							/>
+							<text>
+								<textPath
+									fill="white"
+									font-size="20"
+									href="#circlePath"
+								>
+									Exercises
+								</textPath>
+							</text>
+						</svg>
+					</a>
+				</li>
+				<li>
+					<a
+						href="#/projects/me"
+						class="planet me"
+						aria-label="Individual Projects"
+					>
+						<span aria-hidden="true">Individual Projects</span>
+						<img
+							src="knickknacks/depictions/individual.svg"
+							alt="about"
+							draggable="false"
+							style="display: none"
+							width="100"
+							height="100"
+							aria-hidden="true"
+						>
+						<svg
+							viewBox="0 0 100 100"
+							xmlns="http://www.w3.org/2000/svg"
+							style="display: none"
+							aria-hidden="true"
+						>
+							<path
+								fill="none"
+								stroke="none"
+								d="
+							M 10, 50
+							a 40,40 0 1,1 80,0
+							a 40,40 0 1,1 -80,0
+						"
+							/>
+							<text>
+								<textPath
+									fill="white"
+									font-size="20"
+									href="#circlePath"
+								>
+									Individual Projects
+								</textPath>
+							</text>
+						</svg>
+					</a>
+				</li>
+				<li>
+					<a
+						href="#/projects/us"
+						class="planet us"
+						aria-label="Group Project"
+					>
+						<span aria-hidden="true">Group Project</span>
+						<img
+							src="knickknacks/depictions/group.svg"
+							alt="about"
+							draggable="false"
+							style="display: none"
+							width="100"
+							height="100"
+							aria-hidden="true"
+						>
+						<svg
+							viewBox="0 0 100 100"
+							xmlns="http://www.w3.org/2000/svg"
+							style="display: none"
+							aria-hidden="true"
+						>
+							<path
+								fill="none"
+								stroke="none"
+								d="
+							M 10, 50
+							a 40,40 0 1,1 80,0
+							a 40,40 0 1,1 -80,0
+						"
+							/>
+							<text>
+								<textPath
+									fill="white"
+									font-size="20"
+									href="#circlePath"
+								>
+									Group Project
+								</textPath>
+							</text>
+						</svg>
+					</a>
+				</li>
 			</ul>
-		</article>
-		<div class="back" style="display: none;">
-			<a href="#/">return home</a>
-		</div>
-	</main>
-</body>
-
+			<svg
+				style="position: fixed; opacity: 0; pointer-events: none"
+				viewBox="0 0 400 400"
+				xmlns="http://www.w3.org/2000/svg"
+				aria-hidden="true"
+			>
+				<filter id="noiseFilter">
+					<feTurbulence
+						type="fractalNoise"
+						result="turbulence"
+						baseFrequency="0.2"
+						numOctaves="1"
+						stitchTiles="stitch"
+					/>
+					<feDisplacementMap
+						in2="turbulence"
+						in="SourceGraphic"
+						scale="100"
+						xChannelSelector="R"
+						yChannelSelector="G"
+					/>
+				</filter>
+			</svg>
+		</nav>
+		<main>
+			<article aria-labelledby="/about">
+				<h2 id="/about">About</h2>
+				<p>
+					My name is Tristie Pedulli, I live on the ocean in a town
+					near Rochester. A fun fact about me is that I like to walk
+					around and have found many cool spaces that way. I hope this
+					website gives you that experience.
+				</p>
+				<p>
+					Some may say that this website over the top and convoluted,
+					and those people are 100% correct. At least this convoluted
+					website is accessable, responsive, semantically correct,
+					progressively enhanced, and respects users preferences.
+				</p>
+				<p>
+					All images were created by me, the font is
+					<a
+						href="https://www.brailleinstitute.org/freefont/"
+						target="_blank"
+						>Atkinson Hyperlegible</a
+					>.
+				</p>
+			</article>
+			<article aria-labelledby="/exercises">
+				<h2 id="/exercises">Exercises</h2>
+				<ol>
+					<li>
+						<a
+							href="https://people.rit.edu/~tgp5235/iste-240/"
+							aria-current="page"
+							>ISTE-240 Course Homepage (this page)</a
+						>
+					</li>
+					<li>upcoming</li>
+					<li>upcoming</li>
+					<li>upcoming</li>
+					<li>upcoming</li>
+					<li>upcoming</li>
+					<li>upcoming</li>
+					<li>upcoming</li>
+				</ol>
+			</article>
+			<article aria-labelledby="/projects/me">
+				<h2 id="/projects/me">Individual Projects</h2>
+				<p>
+					I don't have any ISTE-240 individual projects yet so check
+					back later, I guess.
+				</p>
+			</article>
+			<article aria-labelledby="/projects/us">
+				<h2 id="/projects/us">Group Project</h2>
+				<p>
+					This section will get updated once our group project is
+					started.
+				</p>
+				<h3>The Dream Team</h3>
+				<ul>
+					<li>Amber</li>
+					<li>Jennifer</li>
+					<li>Lily</li>
+				</ul>
+			</article>
+			<div class="back" style="display: none">
+				<a href="#/">return home</a>
+			</div>
+		</main>
+	</body>
 </html>

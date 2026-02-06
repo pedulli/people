@@ -6,7 +6,6 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 	<?php include('components/Globals.php') ?>
 
@@ -256,7 +255,7 @@
 		<footer>
 			<address style="opacity: 0.7; text-align: center;">
 				Made by Tristie Pedulli
-				<p>Site content under CC BY-NC 4.0</p>
+				<a href="https://github.com/pedulli/people">[Source Code]</a>
 				<small>
 					last updated <?php echo date('M d, Y @ g:ia', filemtime(__FILE__)) ?> est
 				</small>

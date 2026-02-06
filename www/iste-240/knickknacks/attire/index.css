@@ -7,8 +7,15 @@
 	font-style: normal;
 	font-weight: 400;
 	font-display: swap;
-	src: url(https://fonts.bunny.net/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-400-normal.woff2) format('woff2'), url(https://fonts.bunny.net/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-400-normal.woff) format('woff');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+	src:
+		url(https://fonts.bunny.net/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-400-normal.woff2)
+			format('woff2'),
+		url(https://fonts.bunny.net/atkinson-hyperlegible/files/atkinson-hyperlegible-latin-400-normal.woff)
+			format('woff');
+	unicode-range:
+		U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+		U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+		U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 :root {
@@ -79,7 +86,10 @@ h1 {
 	z-index: -1;
 
 	@media screen and (prefers-reduced-motion: no-preference) {
-		transition: opacity 500ms, scale 500ms, transform 1s;
+		transition:
+			opacity 500ms,
+			scale 500ms,
+			transform 1s;
 	}
 
 	@media (width < 600px) {
@@ -142,7 +152,7 @@ nav {
 		--rotation: 90deg;
 
 		@media screen and (prefers-reduced-motion: no-preference) {
-			img:hover~svg {
+			img:hover ~ svg {
 				animation: spin 10s linear infinite;
 			}
 		}
@@ -171,9 +181,8 @@ nav {
 			}
 
 			&:hover {
-				scale: calc(var(--scale) - .1);
+				scale: calc(var(--scale) - 0.1);
 			}
-
 		}
 
 		svg {
@@ -207,7 +216,7 @@ nav {
 }
 
 body:has(:target) {
-	&>nav>ul {
+	& > nav > ul {
 		flex-direction: row;
 		display: flex;
 		position: fixed;
@@ -218,7 +227,7 @@ body:has(:target) {
 		font-weight: bolder;
 		place-self: safe center;
 		background-color: hsl(from var(--color-primary) h s l / 0.5);
-		padding: .3em .4em;
+		padding: 0.3em 0.4em;
 		z-index: 1;
 		width: 100%;
 		bottom: 0;
@@ -244,7 +253,9 @@ body:has(:target) {
 				border-radius: 1.5em;
 
 				@media screen and (prefers-reduced-motion: no-preference) {
-					transition: color var(--animation-speed), background-color var(--animation-speed);
+					transition:
+						color var(--animation-speed),
+						background-color var(--animation-speed);
 				}
 
 				&:hover {
@@ -276,18 +287,18 @@ body:has(:target) {
 		}
 	}
 
-	&>h1 {
+	& > h1 {
 		opacity: 0;
 		scale: 4;
 		transform: rotate3d(-1, 0, 0, 90deg) translate(0, 100%);
 	}
 
-	&>main>.back {
+	& > main > .back {
 		display: flex !important;
 	}
 }
 
-:not(body:has(:target))>nav>ul {
+:not(body:has(:target)) > nav > ul {
 	@media screen and (prefers-reduced-motion: no-preference) {
 		transition: opacity var(--animation-speed);
 	}
@@ -333,7 +344,9 @@ main {
 		height: 0px;
 
 		@media screen and (prefers-reduced-motion: no-preference) {
-			transition: opacity calc(var(--animation-speed) * 1.5), height calc(var(--animation-speed) * 1.5);
+			transition:
+				opacity calc(var(--animation-speed) * 1.5),
+				height calc(var(--animation-speed) * 1.5);
 		}
 	}
 
@@ -348,13 +361,17 @@ main {
 		text-decoration-color: hsl(from var(--color-primary) h s calc(l + 15));
 
 		@media screen and (prefers-reduced-motion: no-preference) {
-			transition: color var(--animation-speed), text-decoration-color var(--animation-speed);
+			transition:
+				color var(--animation-speed),
+				text-decoration-color var(--animation-speed);
 		}
 
 		&:hover,
 		&:focus-visible {
 			color: hsl(from var(--color-primary) h s calc(l + 15));
-			text-decoration-color: hsl(from var(--color-primary) h s calc(l + 50));
+			text-decoration-color: hsl(
+				from var(--color-primary) h s calc(l + 50)
+			);
 		}
 	}
 
@@ -378,7 +395,9 @@ main {
 			}
 
 			&:hover {
-				background-color: hsl(from var(--color-primary) h s calc(l + 10));
+				background-color: hsl(
+					from var(--color-primary) h s calc(l + 10)
+				);
 			}
 		}
 	}
