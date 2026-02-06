@@ -1,4 +1,4 @@
-@import url(https://fonts.bunny.net/css?family=noto-sans:300,900|tiny5:400);
+@import url(https://fonts.bunny.net/css?family=noto-sans:300,800|tiny5:400);
 
 :root {
 	--primary-color: #f4eb90;
@@ -32,12 +32,7 @@ body {
 		'Open Sans',
 		'Helvetica Neue',
 		sans-serif;
-	font-optical-sizing: auto;
-	font-weight: 100;
-	font-style: normal;
-	font-variation-settings: 'wdth' 100;
 
-	scroll-behavior: smooth;
 	color: var(--text-color);
 	accent-color: var(--primary-color);
 	background: repeating-linear-gradient(var(--page-background-color),
@@ -121,7 +116,7 @@ main {
 	a,
 	a:visited {
 		color: var(--text-color);
-		text-decoration-color: var(--primary-color);
+		/* text-decoration-color: hsl(from var(--primary-color) h 50 l); */
 
 		&:hover {
 			text-decoration-thickness: 2px;
