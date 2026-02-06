@@ -10,13 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Upload via SFTP
         uses: wangyucode/sftp-upload-action@v3
         with:
           host: banjo.rit.edu
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          localDir: 'www'
-          remoteDir: '/home/${{ secrets.USERNAME }}/www'
-          concurrency: 10
+          localDir: "www"
+          remoteDir: "/home/${{ secrets.USERNAME }}/www"
