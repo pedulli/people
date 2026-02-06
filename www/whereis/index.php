@@ -8,7 +8,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- No indexing yet -->
 	<meta name="robots" content="noindex">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 	<?php include('../components/Globals.php') ?>
 
