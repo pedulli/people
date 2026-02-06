@@ -256,7 +256,9 @@
 		<footer>
 			<address style="opacity: 0.7; text-align: center;">
 				Made by Tristie Pedulli
-				<a href="https://github.com/pedulli/people">[Source Code]</a>
+				<p>
+					The source for this website can be found <a href="https://github.com/pedulli/people">on GitHub.</a>
+				</p>
 				<small>
 					last updated <?php echo date('M d, Y @ g:ia', filemtime(__FILE__)) ?> est
 				</small>
