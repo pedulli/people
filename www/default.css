@@ -1,4 +1,28 @@
-@import url(https://fonts.bunny.net/css?family=noto-sans:100,900|tiny5:400);
+@font-face {
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 900;
+	font-stretch: 100%;
+	src: url(https://fonts.bunny.net/noto-sans/files/noto-sans-latin-900-normal.woff2) format('woff2'), url(https://fonts.bunny.net/noto-sans/files/noto-sans-latin-900-normal.woff) format('woff');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 100;
+	font-stretch: 100%;
+	src: url(https://fonts.bunny.net/noto-sans/files/noto-sans-latin-100-normal.woff2) format('woff2'), url(https://fonts.bunny.net/noto-sans/files/noto-sans-latin-100-normal.woff) format('woff');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+	font-family: 'Tiny5';
+	font-style: normal;
+	font-weight: 400;
+	src: url(https://fonts.bunny.net/tiny5/files/tiny5-latin-400-normal.woff2) format('woff2'), url(https://fonts.bunny.net/tiny5/files/tiny5-latin-400-normal.woff) format('woff');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 :root {
 	--primary-color: #f4eb90;
@@ -40,12 +64,10 @@ body {
 	scroll-behavior: smooth;
 	color: var(--text-color);
 	accent-color: var(--primary-color);
-	background: repeating-linear-gradient(
-		var(--page-background-color),
-		var(--page-background-color) 1cm,
-		var(--stripe-color) 1cm,
-		var(--stripe-color) 1.1cm
-	);
+	background: repeating-linear-gradient(var(--page-background-color),
+			var(--page-background-color) 1cm,
+			var(--stripe-color) 1cm,
+			var(--stripe-color) 1.1cm);
 
 	&.dark {
 		--primary-color: oklch(43.2% 0.095 166.913);
@@ -80,6 +102,7 @@ nav {
 		display: flex;
 		align-items: center;
 	}
+
 	a,
 	a:visited {
 		color: var(--text-color);
@@ -123,6 +146,7 @@ main {
 	a:visited {
 		color: var(--text-color);
 		text-decoration-color: var(--primary-color);
+
 		&:hover {
 			text-decoration-thickness: 2px;
 		}
@@ -175,6 +199,7 @@ hr {
 	&:hover {
 		text-decoration: underline;
 	}
+
 	&:focus-visible {
 		outline: auto;
 	}
