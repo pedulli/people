@@ -35,10 +35,12 @@ body {
 
 	color: var(--text-color);
 	accent-color: var(--primary-color);
-	background: repeating-linear-gradient(var(--page-background-color),
-			var(--page-background-color) 1cm,
-			var(--stripe-color) 1cm,
-			var(--stripe-color) 1.1cm);
+	background: repeating-linear-gradient(
+		var(--page-background-color),
+		var(--page-background-color) 1cm,
+		var(--stripe-color) 1cm,
+		var(--stripe-color) 1.1cm
+	);
 
 	&.dark {
 		--primary-color: oklch(43.2% 0.095 166.913);
