@@ -4,11 +4,8 @@ body {
 	padding-inline: 0.5em;
 }
 
-p {
-	display: inline-block;
-}
-
 label {
+	width: max-content;
 	display: block;
 	padding-bottom: 0.5em;
 }
