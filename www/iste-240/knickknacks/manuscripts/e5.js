@@ -6,7 +6,7 @@
 const $ = // Offbrand jQuery
 	document.querySelector.bind(document)
 
-
+	
 SectionA: {
 	const buttonElement = $('#changeStyleButton')
 	const moveButtonElement = $('#moveTextButton')
@@ -15,34 +15,33 @@ SectionA: {
 	buttonElement.addEventListener('click', () =>
 		textElement.classList.toggle('green'))
 
-	moveButtonElement.addEventListener('click', () =>
-		textElement.style.translate = CSS.px(
-			parseInt(textElement.style.translate || 0) + 10
-		))
+	moveButtonElement.addEventListener('click', () => {
+		const currentOffset = parseInt(textElement.style.translate || 0)
+
+		textElement.style.translate = CSS.px(currentOffset + 10)
+	})
 }
 
 
 SectionB: {
 	const formElement = $('#sectionB > form')
+	const countButtonElement = $('#inputCountButton')
 
 	formElement.addEventListener('submit', (event) => {
 		event.preventDefault()
-		if (event.submitter.id)
-			return howmany($('#sectionB'))
 
-		const [firstName, lastName] = new FormData(event.target).values()
+		const [firstName, lastName] = new FormData(formElement).values()
+
 		alert(firstName + ' ' + lastName)
 	})
-
-	function howmany(parentElement) {
-		const inputElements = parentElement.querySelectorAll('input')
+	countButtonElement.addEventListener('click', () => {
+		const inputElements = formElement.querySelectorAll('input')
 		const textInputElements = [...inputElements].filter(({ type }) => type === 'text')
 
-		console.log(`Number of total inputs: ${inputElements.length}`)
-		console.log(`Number of text inputs: ${textInputElements.length}`)
-	}
+		console.log('Number of total inputs: ' + inputElements.length)
+		console.log('Number of text inputs: ' + textInputElements.length)
+	})
 }
-
 
 SectionC: {
 	const parentElement = $('#sectionC')
@@ -72,9 +71,10 @@ SectionE: {
 
 	formElement.addEventListener('submit', (event) => {
 		event.preventDefault()
+
 		const [first, second] = new FormData(event.target).values()
 
-		textElement.innerText = // I assure you I made sure this eval is safe
+		textElement.textContent = // I assure you I know what I'm doing here
 			eval?.(first + event.submitter.dataset.operator + second)
 	})
 }
