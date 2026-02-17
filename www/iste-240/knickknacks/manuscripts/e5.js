@@ -34,6 +34,7 @@ SectionB: {
 
 		alert(firstName + ' ' + lastName)
 	})
+	
 	countButtonElement.addEventListener('click', () => {
 		const inputElements = formElement.querySelectorAll('input')
 		const textInputElements = [...inputElements].filter(({ type }) => type === 'text')
