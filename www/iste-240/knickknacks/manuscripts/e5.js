@@ -44,6 +44,7 @@ SectionB: {
 	})
 }
 
+
 SectionC: {
 	const parentElement = $('#sectionC')
 	const buttonElement = $('#sectionC > button')
