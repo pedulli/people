@@ -11,14 +11,12 @@ body {
 main {
 	margin-inline: auto;
 	max-width: 400px;
-	/* display: flex; */
 }
 
 button {
 	cursor: pointer;
 	background-color: transparent;
 	border: none;
-	padding: 1em;
 
 	img {
 		width: fit-content;
@@ -37,6 +35,7 @@ nav {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	gap: 1em;
 }
 
 figure {

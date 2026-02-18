@@ -4,29 +4,31 @@ const imageElement = document.querySelector('figure > img')
 const captionElement = document.querySelector('figcaption')
 
 const images = {
-	trail: 'trail',
-	bridge: 'hike',
-	fruit: 'fruit',
-	hills: 'mountain pretty',
-	river: 'more pretty',
-	swan: 'swan pretty',
-	waterfall: 'waterfall ugly',
-	lizard: 'gecko awesome'
+	trail: 'Forested trail',
+	bridge: 'Bridge over river',
+	fruit: 'Peach tree',
+	hills: 'Hilly region',
+	river: 'River going through valley',
+	swan: 'Swan with reflextion on lake',
+	waterfall: 'Very nice waterfall',
+	lizard: 'Awesome gecko'
 }
 
 for (const image in images) {
 	const button = document.createElement('button')
+	const listItem = document.createElement('li')
 	const thumbnail = document.createElement('img')
 
 	thumbnail.src = imageSrc(image, true)
+	thumbnail.alt = `switch to "${images[image]}" image`
 	button.appendChild(thumbnail)
-	thumbnailListElement.appendChild(
-		document.createElement('li')
-			.appendChild(button))
+	listItem.appendChild(button)
+	thumbnailListElement.appendChild(listItem)
 
 	button.addEventListener('click', () => {
 		imageElement.src = imageSrc(image)
-		imageElement.alt = images[image]
 		captionElement.textContent = images[image]
 	})
 }
+
+document.querySelector('button').click()
