@@ -1,0 +1,59 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	color: rgb(21, 21, 21);
+	background-color: whitesmoke;
+}
+
+main {
+	margin-inline: auto;
+	max-width: 400px;
+	/* display: flex; */
+}
+
+button {
+	cursor: pointer;
+	background-color: transparent;
+	border: none;
+	padding: 1em;
+
+	img {
+		width: fit-content;
+		display: block;
+		aspect-ratio: 1/1;
+		border-radius: 5px;
+	}
+}
+
+ul,
+li {
+	display: contents;
+}
+
+nav {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+figure {
+	padding-top: 3rem;
+
+	&>img {
+		object-fit: contain;
+		object-position: bottom;
+		margin-inline: auto;
+		display: block;
+		width: 100%;
+		height: 20rem;
+	}
+
+	&>figcaption {
+		text-align: center;
+		font-size: larger;
+		padding-block: 1rem;
+	}
+}
