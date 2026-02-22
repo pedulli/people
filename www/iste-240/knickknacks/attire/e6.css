@@ -10,7 +10,9 @@ body {
 
 main {
 	margin-inline: auto;
+	padding-block: 1rem;
 	max-width: 400px;
+	text-align: center;
 }
 
 button {
@@ -39,7 +41,7 @@ nav {
 }
 
 figure {
-	padding-top: 3rem;
+	padding-top: 1.5rem;
 
 	&>img {
 		object-fit: contain;

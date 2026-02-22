@@ -1,6 +1,6 @@
-const thumbnailListElement = document.querySelector('ul')
-const imageElement = document.querySelector('figure > img')
 const captionElement = document.querySelector('figcaption')
+const imageElement = document.querySelector('figure > img')
+const thumbnailListElement = document.querySelector('ul')
 
 const images = {
 	trail: 'Forested trail',
@@ -14,18 +14,17 @@ const images = {
 }
 
 for (const image in images) {
-	const buttonElement = document.createElement('button')
-	const listItemElement = document.createElement('li')
-	const thumbnailElement = document.createElement('img')
+	const navItemElement = document.querySelector('template').content.cloneNode(true)
+	const thumbnailElement = navItemElement.querySelector('img')
+	const buttonElement = navItemElement.querySelector('button')
 	const preloadElement = new Image
+
+	preloadElement.src = `knickknacks/depictions/e6/${image}.jpg`
 
 	thumbnailElement.src = `knickknacks/depictions/e6/${image}.thumb.jpg`
 	thumbnailElement.alt = `switch to "${images[image]}" image`
-	thumbnailElement.draggable = false
-	preloadElement.src = `knickknacks/depictions/e6/${image}.jpg`
-	buttonElement.appendChild(thumbnailElement)
-	listItemElement.appendChild(buttonElement)
-	thumbnailListElement.appendChild(listItemElement)
+
+	thumbnailListElement.appendChild(navItemElement)
 
 	buttonElement.addEventListener('mousedown', swap)
 	buttonElement.addEventListener('click', swap)
