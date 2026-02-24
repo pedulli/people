@@ -1,0 +1,22 @@
+img {
+	position: absolute;
+	left: 500px;
+	top: 10px
+}
+
+button {
+	display: inline-flex;
+	margin-left: 10px;
+}
+
+.red {
+	color: red;
+}
+
+.hidden {
+	display: none;
+}
+
+.bg-yellow {
+	background-color: yellow;
+}
