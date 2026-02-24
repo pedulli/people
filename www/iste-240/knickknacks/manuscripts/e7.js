@@ -1,4 +1,5 @@
-// I made a nice little helper function for bulk event listening
+// I made some helper functions, may make a basic library at some point
+const select = Object.assign(document.querySelector.bind(document), { all: document.querySelectorAll.bind(document) })
 const listen = (type) => new class { #type; constructor(type) { this.#type = type } for(element, cb) { element.addEventListener(this.#type, cb); return this } }(type)
 
 const [
@@ -9,15 +10,15 @@ const [
 	imageOffsetButton,
 	appendButton,
 	purdueButton
-] = document.querySelectorAll('button')
+] = select.all('button')
 
 const elements = {
-	secondParagraph: document.querySelectorAll('p')[1],
-	yahoo: document.querySelector("li:has(a[href='http://www.yahoo.com'])"),
-	newClass: document.querySelectorAll('.new'),
-	logo: document.querySelector('img'),
-	links: document.querySelector('ol'),
-	purdueTemplate: document.querySelector('template').content
+	secondParagraph: select('p:nth-of-type(2)'),
+	yahoo: select("li:has(a[href='http://www.yahoo.com'])"),
+	newClass: select.all('.new'),
+	logo: select('img'),
+	links: select('ol'),
+	purdueTemplate: select('template').content
 }
 
 listen('click')
