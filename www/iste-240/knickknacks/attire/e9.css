@@ -1,0 +1,17 @@
+body {
+	background-color: aliceblue;
+}
+
+label {
+	padding-block: 0.5em;
+	display: block;
+	width: fit-content;
+}
+
+textarea {
+	display: block;
+}
+
+button {
+	margin-top: 1em;
+}
