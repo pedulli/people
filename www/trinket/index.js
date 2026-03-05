@@ -16,7 +16,7 @@ const output = trinket.build({
 
 			[html.fieldset]: {
 				[html.legend]: 'Experience Level',
-				[input.requiredRadio('experience')]: 'Beginner',
+				[input.radio('experience', { checked: true })]: 'Beginner',
 				[input.radio('experience')]: 'Intermediate',
 				[input.radio('experience')]: 'Advanced',
 			},

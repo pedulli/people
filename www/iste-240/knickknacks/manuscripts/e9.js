@@ -1,7 +1,7 @@
 import * as trinket from '../../../trinket/trinket.js'
 import html, { input } from '../../../trinket/html.js'
 
-const output = trinket.build({
+trinket.mount(html.body(document.body), {
 	[html.form]: {
 		method: 'POST',
 		action: 'https://wp.zybooks.com/form-viewer.php',
@@ -16,7 +16,7 @@ const output = trinket.build({
 
 			[html.fieldset]: {
 				[html.legend]: 'Experience Level',
-				[input.requiredRadio('experience')]: 'Beginner',
+				[input.radio('experience', { checked: true })]: 'Beginner',
 				[input.radio('experience')]: 'Intermediate',
 				[input.radio('experience')]: 'Advanced',
 			},
@@ -29,9 +29,6 @@ const output = trinket.build({
 			}
 		},
 
-		[html.button]: 'Submit Form'
+		[html.button]: 'Register for Workshop'
 	}
 })
-
-for (const element of output)
-	document.body.appendChild(element)

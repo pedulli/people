@@ -1,23 +1,26 @@
 import * as trinket from './trinket.js'
 
-const html = trinket.createEntity((tagName, ...extra) => {
-	const element = toValidTag(tagName)
+const html = trinket.lib.useDynamicNamespace(({ path: [tagName], options: [binding] }) => {
+	let element = toValidTag(tagName)
 	if (!element) return null
 
-	return new Element(element, ...extra)
+	if (binding && binding instanceof HTMLElement && binding.tagName === element.tagName)
+		element = binding
+
+	return trinket.lib.registerEntity(new Element(element))
 })
 
 export default html
 
-export const input = trinket.lib.useDynamicNamespace(({ path, options: [name] }) => {
+export const input = trinket.lib.useDynamicNamespace(({ path, options: [name, restOpts] }) => {
 	const required = path[0].startsWith('required') ? 'required' : undefined
 	const type = path[0] = path[0].replace('required', '').toLowerCase()
 
 	if (path.length !== 1) throw new Error('invalid util params')
 
-	return trinket.registerComponent((attributes) => {
+	return trinket.lib.registerComponent((attributes) => {
 		const labelProps = {}
-		const inputProps = { required, type, name }
+		const inputProps = { required, type, name, ...restOpts }
 		let labelBefore = true
 
 		if (typeof attributes === 'object')
