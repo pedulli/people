@@ -1,32 +1,31 @@
 import * as trinket from './trinket.js'
-import html, { inputUtil } from './html.js'
-const { required, optional } = inputUtil
+import html, { input } from './html.js'
 
 const output = trinket.build({
 	[html.form]: {
 		method: 'POST',
 		action: 'https://wp.zybooks.com/form-viewer.php',
 
-		[required.text('fullName')]: 'Full Name: ',
-		[required.email('email')]: 'Email Address: ',
-		[optional.tel('phone')]: 'Phone Number: ',
-		[required.date('date')]: 'Choose a Date: ',
+		[input.requiredText('fullName')]: 'Full Name: ',
+		[input.requiredEmail('email')]: 'Email Address: ',
+		[input.tel('phone')]: 'Phone Number: ',
+		[input.requiredDate('date')]: 'Choose a Date: ',
 
 		[html.section]: {
 			[html.h2]: "Technologies",
 
 			[html.fieldset]: {
 				[html.legend]: 'Experience Level',
-				[required.radio('experience')]: 'Beginner',
-				[optional.radio('experience')]: 'Intermediate',
-				[optional.radio('experience')]: 'Advanced',
+				[input.requiredRadio('experience')]: 'Beginner',
+				[input.radio('experience')]: 'Intermediate',
+				[input.radio('experience')]: 'Advanced',
 			},
 
 			[html.fieldset]: {
 				[html.legend]: 'Topics of Interest',
-				[optional.checkbox('topics[]')]: 'HTML',
-				[optional.checkbox('topics[]')]: 'CSS',
-				[optional.checkbox('topics[]')]: 'JavaScript',
+				[input.checkbox('topics[]')]: 'HTML',
+				[input.checkbox('topics[]')]: 'CSS',
+				[input.checkbox('topics[]')]: 'JavaScript',
 			}
 		},
 

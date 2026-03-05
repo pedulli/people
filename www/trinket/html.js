@@ -9,40 +9,37 @@ const html = trinket.createEntity((tagName, ...extra) => {
 
 export default html
 
-const inputHelper = (required) => new Proxy({}, {
-	get(_, type) {
-		return trinket.createComponent(([name, input = {}], properties) => {
-			const labelProps = {}
-			const inputProps = { required, type, name, ...input }
-			let labelBefore = true
+export const input = trinket.lib.useDynamicNamespace(({ path, options: [name] }) => {
+	const required = path[0].startsWith('required') ? 'required' : undefined
+	const type = path[0] = path[0].replace('required', '').toLowerCase()
 
-			if (typeof properties === 'object') {
-				Object.assign(labelProps, properties)
-			}
+	if (path.length !== 1) throw new Error('invalid util params')
 
-			if (typeof properties !== 'object') {
-				labelProps.textContent = properties
-				if (['radio', 'checkbox', 'hidden', 'submit'].includes(type)) {
-					inputProps.value = properties
-					labelBefore = false
-				}
-			}
+	return trinket.registerComponent((attributes) => {
+		const labelProps = {}
+		const inputProps = { required, type, name }
+		let labelBefore = true
 
-			return {
-				[html.label]: {
-					...(labelBefore ? labelProps : {}),
-					[html.input]: inputProps,
-					...(!labelBefore ? labelProps : {}),
-				}
+		if (typeof attributes === 'object')
+			Object.assign(labelProps, attributes)
+
+		if (typeof attributes !== 'object') {
+			labelProps.textContent = attributes
+			if (['radio', 'checkbox', 'hidden', 'submit'].includes(type)) {
+				inputProps.value = attributes
+				labelBefore = false
 			}
-		})
-	}
+		}
+
+		return {
+			[html.label]: {
+				...(labelBefore ? labelProps : {}),
+				[html.input]: inputProps,
+				...(!labelBefore ? labelProps : {}),
+			}
+		}
+	})
 })
-
-export const inputUtil = {
-	optional: inputHelper(undefined),
-	required: inputHelper('required')
-}
 
 class Element {
 	constructor(element) {

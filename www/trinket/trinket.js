@@ -1,18 +1,18 @@
-const GlobalRegistry = new Map
+const TrinketRegistry = new Map
 let current = null
 
 export function build(trinket) {
-	const input = typeof trinket === 'function' ? trinket() : trinket
+	const input = lib.maybeCall(trinket)
 	const output = Object.entries(input)
 		.map(([key, value]) => render(key, value))
 		.map(e => e.get())
 
-	GlobalRegistry.clear()
+	TrinketRegistry.clear()
 	return output
 }
 
 function render(parent, children) {
-	const entity = GlobalRegistry.get(parent)
+	const entity = TrinketRegistry.get(parent)
 	if (!entity) throw new Error('invalid entity: ' + parent)
 
 	if (typeof children !== 'object') {
@@ -21,7 +21,7 @@ function render(parent, children) {
 	}
 
 	for (const [child, attributes] of Object.entries(children).reduce((acc, [key, value]) => {
-		const component = GlobalRegistry.get(key)
+		const component = TrinketRegistry.get(key)
 
 		if (!component || !key.startsWith('c/'))
 			return [...acc, [key, value]]
@@ -31,7 +31,7 @@ function render(parent, children) {
 		return acc
 
 	}, [])) {
-		if (GlobalRegistry.has(child)) entity.set(null, render(child, attributes).get())
+		if (TrinketRegistry.has(child)) entity.set(null, render(child, attributes).get())
 		else entity.set(child, attributes)
 	}
 
@@ -39,33 +39,63 @@ function render(parent, children) {
 }
 
 export function createEntity(ext) {
-	function getRef(property, ...extra) {
-		const entity = ext(property, ...extra)
-		if (!entity) throw new Error('invalid entity')
-		const id = `e/${crypto.randomUUID()}`
-		GlobalRegistry.set(id, entity)
+	return lib.createNamespace({
+		value({ value, options }) {
+			const entity = ext(value, ...options)
+			if (!entity) throw new Error('invalid entity')
+			const id = `e/${crypto.randomUUID()}`
+			TrinketRegistry.set(id, entity)
 
-		return id
-	}
-	return new Proxy({}, {
-		get: (_, property) =>
-			Object.assign(
-				(...extra) => getRef(property, ...extra),
-				{ [Symbol.toPrimitive]: () => getRef(property, []) })
+			return id
+		}
 	})
 }
 
-export function createComponent(cb) {
-	function getSymbol(...type) {
-		const id = `c/${crypto.randomUUID()}`
-		GlobalRegistry.set(id, (attributes) => cb(type, attributes))
+export function registerComponent(cb) {
+	const id = `c/${crypto.randomUUID()}`
+	TrinketRegistry.set(id, cb)
 
-		return id
-	}
-
-	return Object.assign(getSymbol, { [Symbol.toPrimitive]: () => getSymbol([]) })
+	return id
 }
+
 
 export function signal(initial) {
 	// soon
+}
+
+export const lib = {
+	createNamespace({ claim = () => true, value = () => { } }) {
+		let claimFn = claim
+		if (Array.isArray(claim))
+			claimFn = (item) => claim.includes(item)
+		if (typeof claim !== 'function')
+			claimFn = (item) => item === claim
+
+		const get = ({ item, options }) => {
+			const check = claimFn(item)
+			if (check)
+				return value({ value: item, claim, options })
+		}
+
+		return new Proxy(Object.create(null), {
+			get: (_, item) => Object.assign(
+				(...options) => get({ item, options }),
+				{ [Symbol.toPrimitive]: () => get({ item, options: [] }) })
+		})
+	},
+	useDynamicNamespace: (map, path = []) => {
+		return new Proxy((...options) => map({ path, options }), {
+			get(_, prop) {
+				if (prop === Symbol.toPrimitive || prop === 'toJSON') {
+					return () => map({ path, options: [] });
+				}
+				return lib.useDynamicNamespace(map, [...path, prop])
+			}
+		})
+	},
+	maybeCall(fn, ...opts) {
+		if (typeof fn !== 'function')
+			return fn
+		else return fn(...opts)
+	}
 }
