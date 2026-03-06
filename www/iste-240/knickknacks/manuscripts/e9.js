@@ -29,6 +29,13 @@ trinket.mount(html.body(document.body), {
 			}
 		},
 
+		[html.label]: {
+			textContent: 'Extra Comments',
+			[html.textArea]: {
+				name: 'comments'
+			}
+		},
+
 		[html.button]: 'Register for Workshop'
 	}
 })
