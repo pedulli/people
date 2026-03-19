@@ -1,37 +1,39 @@
-import * as trinket from './trinket.js'
+import * as $ from './trinket.js'
 import html, { input } from './html.js'
 
-const output = trinket.build({
-	[html.form]: {
-		method: 'POST',
-		action: 'https://wp.zybooks.com/form-viewer.php',
+$.mount(html.body(document.body), function () {
 
-		[input.requiredText('fullName')]: 'Full Name: ',
-		[input.requiredEmail('email')]: 'Email Address: ',
-		[input.tel('phone')]: 'Phone Number: ',
-		[input.requiredDate('date')]: 'Choose a Date: ',
+	const state = $.signal(1)
 
-		[html.section]: {
-			[html.h2]: "Technologies",
+	return ({
+		[html.form]: {
+			method: 'POST',
+			action: 'https://wp.zybooks.com/form-viewer.php',
 
-			[html.fieldset]: {
-				[html.legend]: 'Experience Level',
-				[input.radio('experience', { checked: true })]: 'Beginner',
-				[input.radio('experience')]: 'Intermediate',
-				[input.radio('experience')]: 'Advanced',
+			[input.requiredText('fullName')]: 'Full Name: ',
+			[input.requiredEmail('email')]: 'Email Address: ',
+			[input.tel('phone')]: 'Phone Number: ',
+			[input.requiredDate('date')]: 'Choose a Date: ',
+
+			[html.section]: {
+				[html.h2]: $.signal(() => state.value + 1),
+
+				[html.fieldset]: {
+					[html.legend]: 'Experience Level',
+					[input.radio('experience', { checked: true })]: 'Beginner',
+					[input.radio('experience')]: 'Intermediate',
+					[input.radio('experience')]: 'Advanced',
+				},
+
+				[html.fieldset]: {
+					[html.legend]: 'Topics of Interest',
+					[input.checkbox('topics[]')]: 'HTML',
+					[input.checkbox('topics[]')]: 'CSS',
+					[input.checkbox('topics[]')]: 'JavaScript',
+				}
 			},
 
-			[html.fieldset]: {
-				[html.legend]: 'Topics of Interest',
-				[input.checkbox('topics[]')]: 'HTML',
-				[input.checkbox('topics[]')]: 'CSS',
-				[input.checkbox('topics[]')]: 'JavaScript',
-			}
-		},
-
-		[html.button]: 'Submit Form'
-	}
+			[html.button]: 'Submit Form'
+		}
+	})
 })
-
-for (const element of output)
-	document.body.appendChild(element)

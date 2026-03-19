@@ -44,26 +44,69 @@ export const input = trinket.lib.useDynamicNamespace(({ path, options: [name, re
 	})
 })
 
+export const mountClientSideRouter = (...[{ rootNode, rootPath }, routes]) => {
+
+	goto(location.pathname)
+
+	void ([...rootNode.querySelectorAll('a[href]')]).forEach(a => a.addEventListener('mousedown', (event) => {
+		if (
+			URL.canParse(event.currentTarget.href) &&
+			(() => {
+				let url = new URL(event.currentTarget.href)
+				return url.hostname === location.hostname && url.pathname.startsWith(rootPath)
+			})()
+		) {
+			event.preventDefault()
+			goto(new URL(event.currentTarget.href).pathname)
+			mountClientSideRouter({ rootNode, rootPath }, routes)
+		}
+	}))
+
+	window.addEventListener('popstate', () => {
+		goto(location.pathname)
+		mountClientSideRouter({ rootNode, rootPath }, routes)
+	})
+
+	function goto(route) {
+		const page = trinket.lib.maybeCall(routes[route.replace(rootPath, '')])
+
+		if (!page) throw 'page not found'
+
+		if (route !== location.pathname)
+			history.pushState(null, null, route)
+
+		rootNode.innerHTML = ''
+		document.title = page.title ?? undefined
+		trinket.mount(html.div(rootNode), page.content)
+	}
+}
+
 class Element {
 	constructor(element) {
 		this.element = element
 	}
 
-	set(key, value) {
-		if (value instanceof HTMLElement)
-			this.element.appendChild(value)
-		else if (key && (key !== 'textContent')) {
-			if (key in this.element) this.element[key] = value
-			else this.element.setAttribute(key, value)
+	set(key) {
+		return (value) => {
+			if (value instanceof HTMLElement)
+				this.element.appendChild(value)
+			else if (key && (key !== 'textContent')) {
+				if (key.startsWith('on')) this.element.addEventListener(key.substring(2), value)
+				if (key in this.element) this.element[key] = value
+				else this.element.setAttribute(key, value)
+			} else if (this.element.tagName === 'INPUT')
+				this.element.setAttribute('name', value)
+			else
+				this.element.insertAdjacentText('beforeend', value)
 		}
-		else if (this.element.tagName === 'INPUT')
-			this.element.setAttribute('name', value)
-		else
-			this.element.insertAdjacentText('beforeend', value)
 	}
 
 	get() {
 		return this.element
+	}
+
+	remove() {
+		this.element.remove()
 	}
 }
 

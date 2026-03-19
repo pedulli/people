@@ -1,0 +1,21 @@
+<script type="module">
+	import select from './knickknacks/manuscripts/sele.js'
+
+	select.from('body')('div').appendChild(
+		select.new('label', ({ children, on }) => ({
+			[children]: [
+				'hi',
+				select.new('input', {
+					type: 'number',
+					name: 'age',
+					placeholder: 'age',
+					class: ['a', 'c']
+				})
+			]
+		}))
+	)
+</script>
+
+<h1>hello</h1>
+
+<div></div>

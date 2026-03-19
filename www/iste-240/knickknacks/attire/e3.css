@@ -1,0 +1,95 @@
+/**
+	Unforunately this was written by Tristie
+*/
+
+:root {
+	--primary: #474588;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
+body {
+	color: white;
+	background: #161616;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav > ul {
+	--dark: oklch(from var(--primary) calc(l * 0.95) c h);
+	--darker: oklch(from var(--primary) calc(l * 0.9) c h);
+	--darkest: oklch(from var(--primary) calc(l * 0.8) c h);
+	list-style: none;
+	padding: 0 2em;
+	display: flex;
+	align-items: center;
+	background-color: var(--primary);
+	height: 4rem;
+
+	li:has(:focus) {
+		anchor-name: --submenu;
+
+		& > button {
+			background-color: var(--dark);
+		}
+
+		& > ul {
+			display: block;
+		}
+	}
+
+	li:has(ul) {
+		list-style: none;
+
+		& > button {
+			all: unset;
+			cursor: pointer;
+			height: 4rem;
+			padding-inline: 1.5rem;
+			background-color: var(--primary);
+
+			@media screen and (prefers-reduced-motion: no-preference) {
+				transition: 50ms background-color;
+			}
+		}
+
+		& > ul {
+			display: none;
+			border: none;
+			background-color: var(--darker);
+			position: absolute;
+			position-anchor: --submenu;
+			top: anchor(bottom);
+			left: anchor(left);
+			min-width: 10rem;
+			list-style: none;
+			padding: 0;
+
+			& > li > a {
+				color: rgb(206, 206, 206);
+				height: 2rem;
+				display: flex;
+				padding-inline: 1.5rem;
+				align-items: center;
+
+				background-color: var(--darker);
+
+				@media screen and (prefers-reduced-motion: no-preference) {
+					transition: 50ms background-color;
+				}
+
+				& > a {
+					position: relative;
+					inset: 0;
+				}
+
+				&:hover,
+				&:focus {
+					background-color: var(--darkest);
+				}
+			}
+		}
+	}
+}
