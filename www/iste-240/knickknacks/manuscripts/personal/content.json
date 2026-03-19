@@ -2,11 +2,34 @@
 	"/": {
 		"title": "Fake Canada Official Website",
 		"sections": [
-			"Fake Canada is a city below Fake Australia. Fake Canada was originally founded on February 29, 1364, as an esclave of New Jersey. However, due to a short revolutionary war, it gained its independence exactly 1 week after its founding."
+			"Fake Canada is a city below Australia. Fake Canada was originally founded on February 29, 1364, as an esclave of New Jersey. However, due to a short revolutionary war, it gained its independence exactly 1 week after its founding."
 		]
 	},
-	"/history.html": {
-		"title": "History of Fake Canada",
-		"sections": []
+	"/history/independence.html": {
+		"title": "Fakian Independence War",
+		"sections": [
+			"The Fakian Independence War was fought against their former colonizer, New Jersey, in 1364. The Fakian local government was tired of the executive New Jersey government making bad decisions about driving laws, so on March 3rd they decided to send a strongly worded email to NJ, who succeeded power to the people a few days later.",
+			"After power was handed over, the Fakian Governent elected a council to oversee the management of their city state. In the first three days, the council, which consisted of 2 elected dictators who were elected once a month, had sucessfully reengaged trade with Australia. Up until this point, Fake Canada and Australia had bad relations due to the opinions of the NJ President, but the new administration was able to reestablish a relationship with them."
+		]
+	},
+	"/history/notable.html": {
+		"title": "Notable Fakians",
+		"sections": [
+			"There are many notable Fakians throughout history, although many of them are only famous in Fake Canada due to the language barrier between it and other nations. A non-excaustive list is provided below to show of some of the most notable.",
+			{
+				"type": "list",
+				"values": {
+					"John FakeCanada": "was the original builder of the city whomst it was named after. He was responsible for building all of the buildings and infrastructure for the city when it was founded. After Fake Canada gained independence, John was offered a spot on the council, but he rejected it since he wanted to continue his personal project of building tunnels under the entire city which would later be used for infrastructure.",
+					"Wendy McDonald": "was one of the original two elected officials of Fake Canada. She was responsible for numerous things, including building relations with Australia, as well as designing the internal infrastructure for the city which is still used to this day.",
+					"April Maejunjuli": "was the other of the two original council members. April was the designer and builder of all of the residential buildings in the city. She is credited with creating the autonomous systems which feed the city, as well as causing the Fakian poverty rate to plummet into the negetives."
+				}
+			}
+		]
+	},
+	"/nature": {
+		"title": "Flora & Fauna of Fake Canada",
+		"sections": [
+			"Fake Canada is home to many different species of plants and animals."
+		]
 	}
 }

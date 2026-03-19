@@ -11,12 +11,35 @@ body {
 
 nav {
 	background-color: #0d391f;
-	padding: 0.5rem 2rem;
+	padding: 1rem 2rem;
 
-	
+	display: flex;
+	gap: 1em;
+
+	ul, li {
+		display: contents;
+	}
+
+	a {
+		color: rgb(174, 201, 168);
+	}
 }
 
 main {
 	max-width: 50rem;
-	margin-inline: auto
+	margin-inline: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	padding: 1em;
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+
+		b {
+			padding-right: 0.5ch;
+		}
+	}
 }
