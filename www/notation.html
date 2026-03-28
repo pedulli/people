@@ -56,7 +56,7 @@ like (
 	</main>
 
 	<script>
-		const sorry = /(?<tableName>[a-z0-9_]+)\s{0,}\(\s{0,}(?<pk>(?:[a-z0-9_](?:\s{0,}=\s{0,}[a-z0-9_]{0,}\.[a-z0-9_]{0,})?[,\s;]{0,}\s{0,}){1,}\s{0,})\)(?:(?:\s{0,}{\s{0,}(?<keys>(?:[a-z0-9_](?:\s{0,}=\s{0,}[a-z0-9_]{0,}\.[a-z0-9_]{0,})?[,\s;]{0,}\s{0,}){0,})\s{0,}})|(?!\s{0,}{)|\s{0,}{\s{0,}}|\s{0,}\{)/img
+		const sorry = /(?<tableName>[a-z][a-z0-9$_]{0,63})\s{0,}\(\s{0,}(?<pk>(?:[a-z0-9$_](?:\s{0,}=\s{0,}[a-z0-9_$]{0,}\.[a-z0-9$_]{0,})?[,\s;]{0,}\s{0,}){1,}\s{0,})\)(?:(?:\s{0,}{\s{0,}(?<keys>(?:[a-z0-9$_](?:\s{0,}=\s{0,}[a-z0-9$_]{0,}\.[a-z0-9$_]{0,})?[,\s;]{0,}\s{0,}){0,})\s{0,}})|(?!\s{0,}{)|\s{0,}{\s{0,}}|\s{0,}\{)/img
 		globalThis.MEI = false
 
 		window.tabmate.tabmate(input)
@@ -107,8 +107,6 @@ like (
 
 			const primaryKeys = normalize(pk)
 			const normalKeys = normalize(keys)
-
-			console.log(keys)
 
 			if (!primaryKeys.length) return
 
