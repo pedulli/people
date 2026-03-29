@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>personal notation</title>
+
+	<script type="module" src="index.js"></script>
+	<link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+	<h1>personal notation</h1>
+	<p>
+		This is an alternate notation that I made that translates into the <a
+			href="https://ischool.gccis.rit.edu/wiki/SQL_Coding_Standards" target="_blank"
+			rel="noopener noreferrer">ischool relational notation standard</a>.
+	</p>
+	<section>
+		<h2>notation rules</h2>
+		<ul>
+			<li><b>the minimum table</b> is "table_name(primary_key)" because all tables need at least one primary key
+			</li>
+			<li><b>define columns</b> by using snake_case (case insensitive) words separated by either a comma, a
+				semicolon,
+				or a newline
+			<li><b>non pk columns</b> are included in the optional {} block after the primary keys</li>
+			<li><b>foreign keys</b> are made by adding "=table.pk" after any key. the referenced column needs to be a
+				valid pk on another table</li>
+			<li><b>whitespace</b> doesn't matter at all so you can go wild</li>
+		</ul>
+	</section>
+	<main>
+		<section>
+			<h2>input</h2>
+			<textarea id="input">
+user(id){ name, email }
+
+post(id){
+  title
+  content
+  user_id = user.id
+}
+
+follow (
+  actor_id = user.id
+  subject_id = user.id
+)
+
+like (
+  actor_id = user.id
+  post_id = post.id
+)</textarea>
+		</section>
+		<section>
+			<div>
+				<h2>output</h2>
+				<label>mei<input type="checkbox" id="mei"></label>
+			</div>
+			<pre id="output"></pre>
+		</section>
+	</main>
+</body>
+
+</html>

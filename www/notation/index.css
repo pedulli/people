@@ -1,0 +1,23 @@
+body {
+	font-family: 'Courier New', Courier, monospace;
+	font-size: medium;
+}
+
+main {
+	display: flex;
+	gap: 2em;
+}
+
+textarea {
+	width: 25dvw;
+	height: 25dvh;
+	padding: 2em;
+}
+
+section {
+	&>div {
+		display: flex;
+		align-items: baseline;
+		gap: 1em;
+	}
+}
