@@ -34,7 +34,12 @@
 			<h2>input</h2>
 			<textarea id="input" cols="60" rows="20" oninput="go()" style="padding: 2em;">
 user(id){ name, email }
-post(id){ title, content, user_id = user.id }
+
+post(id){
+  title
+  content
+  user_id = user.id
+}
 
 follow (
   actor_id = user.id
