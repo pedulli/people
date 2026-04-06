@@ -76,11 +76,9 @@
 			<ul>
 				<li>
 					<strong>Sveltekit</strong>
-					is my web framework of choice. I find that Svelte is both incredibly intuitive but also just as
-					rewarding. The release of Svelte 5 added back some of the complexity that was previously hidden, but
-					the team was able to justify it well and after using it I can confidently say that I like the
-					direction they are taking it. There are currently two proposals going on, async Svelte and Remote
-					functions, that have made me ecstatic.
+					is my web meta framework of choice. I find that Svelte is both incredibly intuitive but also just as
+					rewarding. I share a lot of programming ideologies with team behind Svelte's development, such as how
+					they go about designing their APIs (notably server functions).
 				</li>
 				<li>
 					<strong>TailwindCSS</strong>
@@ -231,7 +229,7 @@
 				written in a few hours of procrastination of more important work. I am adding this disclaimer because of
 				the previous reasoning but also to remind myself to write more in depth about my stance on it because
 				the debate is not black and white when contextualized. As a preview of my stance I will say that most
-				use cases are stupid. I consider myself neither pro nor anti AI.
+				use cases are stupid.
 			</p>
 			<br>
 			<p>
@@ -249,8 +247,8 @@
 		<section aria-labelledby="contact">
 			<h2 id="contact">Contact</h2>
 			<p>
-				If you would like to contact me about anything feel free to shoot me an email at my address which is the
-				letter t at mail.rit.edu. Or just talk to me in person if you know what I look like.
+				If you would like to contact me about anything feel free to shoot me an email at my address which is my
+				first initial at mail.rit.edu. Or just talk to me in person if you know what I look like.
 			</p>
 		</section>
 		<footer>
